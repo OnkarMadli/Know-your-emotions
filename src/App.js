@@ -2,12 +2,16 @@ import "./styles.css";
 import React, { useState } from "react";
 
 const emojiDictionary = {
-  "😋": "yum yum",
+  "😋": "yummy",
   "🤑": "money money",
-  "👻": "booo",
+  "👻": "ghost",
   "🙃": "whaaaat",
   "🤣": "LMAO",
-  "😛": "Haha baeeee"
+  "😛": "trickedYou",
+  "🙂": "Smiling Face",
+  "😗": "Kissing Face",
+  "😟": "Worried Face",
+  "😎": "Swag Face"
 };
 
 var emojis = Object.keys(emojiDictionary);
@@ -33,11 +37,15 @@ export default function App() {
   return (
     <div className="App">
       <h1>Inside outt!</h1>
-      <input onChange={emojiInputHandler} />
-      <h2> meaning {meaning} </h2>
-      <h3>Emoji we know</h3>
+      <input class="input" onChange={emojiInputHandler} />
+      <h2> meaning: {meaning} </h2>
+      <h3>Emojis we know</h3>
       {emojis.map((emoji) => {
-        return <span onClick={() => emojiClickHandler(emoji)}>{emoji}</span>;
+        return (
+          <span class="emoji" onClick={() => emojiClickHandler(emoji)}>
+            {emoji}
+          </span>
+        );
       })}
     </div>
   );
